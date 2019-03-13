@@ -1,0 +1,14 @@
+class FortunetellingsController < ApplicationController
+  include FortunetellingsHelper
+
+  def show
+    @birthday = params[:birthday]
+    @year = @birthday[0, 4]
+    @month = @birthday[4, 2]
+    @day = @birthday[6, 2]
+    @zodiac_sign = zodiac_sign(@month, @day)
+    @age = age(@birthday)
+    @fortune = %w(大吉 中吉 吉 小吉 凶 大凶).sample
+    @happy_birthday = happy_birthday(@birthday)
+  end
+end
