@@ -1,6 +1,4 @@
 module FortunetellingsHelper
-  
-
 
   def zodiac_sign(month, day)
     monthday = (month + day).to_i
@@ -23,6 +21,12 @@ module FortunetellingsHelper
 
   def age(birthday)
     (Date.today.strftime("%Y%m%d").to_i - birthday.to_i) / 10000
+  end
+
+  def happy_birthday(birthday)
+    if Date.today.strftime("%m%d").to_i == birthday[4, 4].to_i
+        "今日があなたの誕生日です。"
+    end
   end
 
 end
